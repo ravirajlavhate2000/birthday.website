@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cut the Cake</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Floating Hearts (Preserved) -->
+        <div class="heart-container"></div>
+
+        <!-- Cake and Knife Section -->
+        <div class="cake-container">
+            <img src="images/1uncut-cake.png" alt="Cake" id="cakeImage">
+            <img src="images/2knife.png" alt="Knife" id="knife" class="knife">
+        </div>
+
+        <!-- Sound for Cutting Cake -->
+        <audio id="cutSound" src="cut-sound.mp3"></audio>
+    </div>
+
+    <!-- Floating Hearts Script (Preserved) -->
+    <script src="script/floatingHearts.js"></script>
+
+    <!-- Cake Cutting Script -->
+    <script>
+        document.getElementById('knife').addEventListener('click', function() {
+            const cakeImage = document.getElementById('cakeImage');
+            const cutSound = document.getElementById('cutSound');
+
+            // Change cake image to cut version
+            cakeImage.src = 'images/cut-cake.png';
+
+            // Play cut sound
+            cutSound.play();
+
+            // Move knife down
+            this.style.top = '50%';
+            this.style.transform = 'translateX(-50%) rotate(45deg)';
+
+            // Move to the next page after 1 second
+            setTimeout(() => {
+                window.location.href = 'page8memories.html'; // Replace with your next page
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
